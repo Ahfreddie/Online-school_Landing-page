@@ -1,0 +1,176 @@
+/* resetting the browser defaults */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* so width + padding behave logically */
+}
+
+/* Body defaults (global mood) */
+body {
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif; /* instant load and modern */
+  line-height: 1.6; /* improves readability */
+  color: #1a1a1a;
+  background-color: #f7f8fc; /* off-white for softer background, easy on the eyes */
+}
+
+/* Resetting lists + links 
+-lists styled customly
+-links should blend into design unless highlighted
+-Control > defaults
+*/
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* hero container styling */
+.hero {
+  min-height: 100vh; /* hero fills screen without forcing overflow */
+  display: flex; /* creates left + right columns */
+  align-items: stretch; /* both sides grow evenly */
+  padding: 2rem 4rem; /* screen edge breathing room */
+}
+
+/* Left vs Right column sizing */
+.hero-content {
+  flex: 1; /* makes both columns equal */
+  display: flex;
+  flex-direction: column; /* stacks vertically */
+  gap: 3rem; /* replaces margin hacks */
+}
+
+.hero-images {
+  flex: 1;
+  display: flex;
+
+  /* center the image grid naturally */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Header layout(logo + nav + button) */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Navigation spacing */
+.nav ul {
+  display: flex;
+  gap: 2rem; /* keeps spacing consistent */
+}
+
+.nav a {
+  font-size: 0.95rem; /* keeps hierarchy clear */
+  font-weight: 500;
+}
+
+/* Hero text */
+.hero-text {
+  max-width: 520px; /* prevents line from getting too wide, improves readability, keeps focus on message */
+}
+
+.hero-text h1 {
+  font-size: 3rem; /* bold but not aggressive */
+  font-weight: 700;
+  line-height: 1.2; /* for that confidence */
+  margin-bottom: 1.5rem; /* keeps spacing predictable */
+}
+
+.hero-text p {
+  font-size: 1rem;
+  color: #555; /* muted color for hierachy */
+  margin-bottom: 2rem; /* clear spacing from buttons */
+}
+
+/* Button group layout */
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Base button styling */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px; /* pill shape feels friendly */
+  border: none; /* modern look */
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Primary vs Secondary buttons */
+.btn-primary {
+    background-color: #6c63ff; /* primary action stands out */
+    color: #fff;
+    border-radius: 1.5rem 1.5rem 1.5rem 0.3rem;
+}
+
+.btn-primary:hover {
+    background-color: #584fe0; /* feedback without drama */
+}
+
+.btn-secondary {
+    background-color: transparent; /* doesn't compete */
+    color: #6c63ff;
+    border-radius: 1.5rem 1.5rem 0.3rem 1.5rem;
+}
+
+/* categories section */
+.categories h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.categories ul {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.categories li {
+    font-size: 0.9rem;
+    color: #6c63ff;
+    cursor: pointer;
+}
+
+/* Image Grid container */
+.image-grid {
+    display: grid; /* 2d control (rows + columns) */
+    grid-template-columns: repeat(3,1fr); /* 3 equal columns, with flexible width */
+    gap: 1.5rem;
+    max-width: 480px; /* prevents image block from overpowering the text side */
+    
+    grid-auto-rows: 220px;/* very grid cell gets uniform height, images stop growing vertically */
+}
+
+/* Image behaviour */
+.image-grid img {
+    width: 100%; /* image fills its grid cell horizontally */
+    height: 100%; /* allows consistent card sizing */
+    object-fit: cover; /* crop without strecting */
+    border-radius: 999px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* Visual rhythm, break monotony
+*/
+.image-grid img:nth-child(2),
+.image-grid img:nth-child(5) {
+    grid-row: span 2;
+}
+
