@@ -18,7 +18,7 @@ body {
   color: #1a1a1a;
   background-color: #f7f8fc; /* off-white for softer background, easy on the eyes */
   height: 100%;
-  overflow: hidden;
+  overflow: hidden; /* lock page to get rid of vertical scrolling */
 }
 
 /* Resetting lists + links 
@@ -39,8 +39,12 @@ a {
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 1.5rem 4rem; /* visual alignment with hero (horizontal) */
+}
+
+.logo span {
+    font-size: 2.5rem;
 }
 
 /* signup button, same design as other buttons */
@@ -61,11 +65,11 @@ a {
 .hero {
   min-height: 100vh; /* hero fills screen without forcing overflow */
   display: flex; /* creates left + right columns */
-  justify-content: center;
+  justify-content: center; /* center both sides so that there isn't too much white space in the middle */
   align-items: stretch; /* both sides grow evenly */
   gap: 3rem;
   padding: 0 4rem; /* screen edge breathing room */
-  overflow: hidden;
+  overflow: visible;
 }
 
 /* Left vs Right column sizing */
@@ -86,7 +90,7 @@ a {
   justify-content: flex-end;
 
   position: relative; /* reference point */
-  overflow: hidden; /* allows images to escape the hero box */
+  overflow: visible; /* allows images to escape the hero box */
 }
 
 /* Navigation spacing */
@@ -176,9 +180,10 @@ a {
   display: grid; /* 2d control (rows + columns) */
   grid-template-columns: repeat(
     3,
-    1fr
+    120px
   ); 
   gap: 1rem;
+  /* row-gap: 0.5rem; */
   max-width: 520px; /* prevents image block from overpowering the text side */
   /* margin-right: -4rem; */
 
@@ -188,19 +193,19 @@ a {
 /* Image behaviour */
 .image-grid img {
   width: 120px; /* image fills its grid cell horizontally */
-  height: 280px; /* allows consistent card sizing */
+  height: 350px; /* allows consistent card sizing */
   object-fit: cover; /* crop without strecting */
   border-radius: 999px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
 .image-grid img:nth-child(3n + 2) {
-  transform: translateY(-3rem);
+  transform: translateY(-10.5rem);
 }
 
 .image-grid img:nth-child(3n + 1),
 .image-grid img:nth-child(3n + 3) {
-  transform: translateY(2.5rem);
+  transform: translateY(1.5rem);
 }
 
 /* Responsiveness */
